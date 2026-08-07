@@ -87,6 +87,12 @@ function siteLinksHtml({ compact }) {
 }
 
 const BACKEND_GROUPS = [
+  // Sits directly under the section's Overview item. The page is non-numbered
+  // (docs/<lang>/quick-reference.md), so sync-books.sh leaves it alone and it
+  // never reaches the PDF. Without an entry here it lands in the orphan "More"
+  // group at the bottom, collapsed - a finder nobody finds. Only python has the
+  // page today; a language without it simply shows no group.
+  { text: "Quick Reference", stems: ["quick-reference"] },
   {
     text: "Foundations",
     stems: ["getting-started", "routing", "request-response", "templates",
